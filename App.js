@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { AppRegistry, YellowBox } from 'react-native';
-import { createStackNavigator  } from 'react-navigation';
-import Root from './src/main';
+import { createStackNavigator } from 'react-navigation';
 import login from './src/screens/login/login';
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);

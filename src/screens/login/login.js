@@ -8,9 +8,8 @@ import {
   TouchableOpacity,
   AsyncStorage,
 } from 'react-native';
-import { StackNavigator } from 'react-navigation';
 
-export default class Login extends Component {
+export default class login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,6 +27,10 @@ export default class Login extends Component {
       if (value !== null) {
         this.props.navigation.navigate('Profile');
       }
+    }
+
+    login = () => {
+      alert('test');
     }
 
     render() {
@@ -60,10 +63,6 @@ export default class Login extends Component {
 
         </KeyboardAvoidingView>
       );
-    }
-
-    login = () => {
-      alert('test');
     }
 }
 
