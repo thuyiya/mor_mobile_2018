@@ -5,8 +5,8 @@ import login from '../login/login';
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
-const Application = createStackNavigator({
-  Home: { screen: login },
+const Nav = createStackNavigator({
+  login: { screen: login },
 }, {
   headerMode: 'none',
   navigationOptions: {
@@ -16,7 +16,7 @@ const Application = createStackNavigator({
 
 export default class App extends Component {
     loginPage = () => {
-      Application('Home');
+      this.props.navigation.navigate('login');
     }
 
     render() {
@@ -24,7 +24,7 @@ export default class App extends Component {
 
         <View style={styles.container}>
 
-          <Text style={styles.header}>- WELCOME To TidyMaster -</Text>
+          <Text style={styles.header}>- WELCOME -</Text>
 
           <TouchableOpacity
             style={styles.btn}
