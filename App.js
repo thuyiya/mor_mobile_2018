@@ -8,8 +8,9 @@ YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTIm
 const Application = createStackNavigator({
   Home: { screen: login },
 }, {
+  headerMode: 'none',
   navigationOptions: {
-    header: false,
+    headerVisible: false,
   },
 });
 
