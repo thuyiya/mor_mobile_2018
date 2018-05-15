@@ -30,8 +30,34 @@ export default class login extends Component {
     }
 
     login = () => {
-      alert('test');
-    }
+      alert(this.state.username);
+
+  //     fetch('http://192.168./users',{
+  //       method: 'POST',
+  //       headers: {
+  //         'Accept:': 'application/json',
+  //         'Content-type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         username: this.state.username,
+  //         password: this.state.password,
+  //       })
+  //     })
+
+  //     then((response) => response.json())
+  //     then ((res) => {
+  //       if (res.success === true) {
+  //         AsyncStorage.setItem('user',res.user);
+  //         this.props.navigation.navigate('profile');
+  //       }
+
+  //       else{
+  //         alert(res.message);
+  //       }
+  //     })
+  //     done();
+  // }
+}
 
     render() {
       return (
