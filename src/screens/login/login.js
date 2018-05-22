@@ -6,7 +6,10 @@ import {
   TextInput,
   KeyboardAvoidingView,
   TouchableOpacity,
+  YellowBox,
 } from 'react-native';
+
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
 export default class login extends Component {
   render() {

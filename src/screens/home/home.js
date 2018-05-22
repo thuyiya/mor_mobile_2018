@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { AppRegistry, TouchableOpacity, Text, StyleSheet, View } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, View, YellowBox } from 'react-native';
 import { LoginScreen } from '../../../screenNames';
+
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
 export default class App extends Component {
   render() {
@@ -58,4 +60,3 @@ const styles = StyleSheet.create({
 
 });
 
-AppRegistry.registerComponent('sample_project', () => App);
