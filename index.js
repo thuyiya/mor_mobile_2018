@@ -1,4 +1,33 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
+import { StackNavigator } from 'react-navigation';
+
+import Home from './src/screens/home/home';
+import Profile from './src/screens/profile/profile';
+import Login from './src/screens/login/login';
+
+const App = StackNavigator({
+
+  HomeScreen: {
+    screen: Home,
+    navigationOptions: {
+      headerTitle: 'Welcome',
+    },
+  },
+
+  LoginScreen: {
+    screen: Login,
+    navigationOptions: {
+      headerTitle: 'Login',
+    },
+  },
+
+  ProfileScreen: {
+    screen: Profile,
+    navigationOptions: {
+      headerTitle: 'Profile',
+    },
+  },
+
+});
 
 AppRegistry.registerComponent('sample_project', () => App);
