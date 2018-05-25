@@ -7,12 +7,15 @@ import {
   KeyboardAvoidingView,
   TouchableOpacity,
   YellowBox,
+  ToastAndroid,
 } from 'react-native';
+import { ProfileScreen } from '../../../screenNames';
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
 export default class login extends Component {
   render() {
+    const { navigation } = this.props;
     return (
       <KeyboardAvoidingView behavior='padding' style={styles.wrapper}>
 
@@ -33,6 +36,17 @@ export default class login extends Component {
           />
           <TouchableOpacity
             style={styles.btn}
+            onPress={() => {
+              sendPost('http://192.168.8.105:3000/login', { username: this.state.username, password: this.state.password }).then((resp) => {
+                if (resp.state) {
+                  navigation.navigate(ProfileScreen);
+                } else {
+                  ToastAndroid.show(resp.msg, ToastAndroid.SHORT);
+                }
+              }).catch((error) => {
+                console.error(error);
+              });
+            }}
           >
             <Text>Login</Text>
           </TouchableOpacity>
@@ -42,6 +56,20 @@ export default class login extends Component {
       </KeyboardAvoidingView>
     );
   }
+}
+
+function sendPost(url, data) {
+  return fetch(url, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  }).then((response) => response.json())
+    .catch((error) => {
+      console.error(error);
+    });
 }
 
 const styles = StyleSheet.create({
